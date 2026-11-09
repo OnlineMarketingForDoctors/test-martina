@@ -158,7 +158,7 @@
     track.innerHTML = slides.map(function (pair, si) {
       return '<div class="ba__slide" role="group" aria-roledescription="slide" aria-label="' + (si + 1) + ' of ' + slides.length + '"' + (si ? ' aria-hidden="true"' : '') + '>' +
         pair.map(function (p) {
-          return '<figure class="ba__fig">' + compareHTML(p.id, p.title) + '<figcaption><b>' + esc(p.title) + '</b><span>' + esc(p.text) + '</span><i>' + esc(p.tag) + '</i></figcaption></figure>';
+          return '<figure class="ba__fig">' + compareHTML(p.id, p.title) + '<figcaption><b>' + esc(p.title) + '</b><span>' + esc(p.text) + '</span></figcaption></figure>';
         }).join('') + '</div>';
     }).join('');
     $$('[data-compare]', track).forEach(initCompare);

@@ -233,11 +233,12 @@ h1,h2,h3,h4,p,blockquote{margin:0}
 .arrow:hover{background:var(--gold);color:var(--ink)}
 .ba__viewport{overflow:hidden}
 .ba__track{display:flex;transition:transform .8s var(--ease)}
-.ba__slide{flex:0 0 100%;display:grid;grid-template-columns:repeat(2,minmax(0,var(--ba-w)));justify-content:center;gap:32px;padding:2px;--ba-w:min(400px,calc((100vh - 320px) * .8))}
-.ba__fig{margin:0;background:var(--card);border-radius:var(--r-lg);padding:12px 12px 22px;border:1px solid var(--rule)}
-.ba__fig .compare{border-radius:calc(var(--r-lg) - 8px);aspect-ratio:4/5}
-.ba__fig .compare img{object-position:50% 30%}
-.ba__fig figcaption{padding:18px 10px 0}
+.ba__slide{flex:0 0 100%;display:grid;grid-template-columns:repeat(2,minmax(0,var(--ba-w)));justify-content:center;gap:32px;padding:2px;--ba-w:clamp(240px,calc(100vh - var(--hdr) - 250px),440px)}
+@supports (height:100svh){ .ba__slide{--ba-w:clamp(240px,calc(100svh - var(--hdr) - 250px),440px)} }
+.ba__fig{margin:0;background:var(--card);border-radius:var(--r-lg);padding:10px 10px 18px;border:1px solid var(--rule)}
+.ba__fig .compare{border-radius:calc(var(--r-lg) - 8px);aspect-ratio:1/1;width:100%}
+.ba__fig .compare img{object-position:50% 38%}
+.ba__fig figcaption{padding:14px 8px 0}
 .ba__fig figcaption b{display:block;font:500 25px/1.1 var(--serif)}
 .ba__fig figcaption span{display:block;margin-top:6px;font-size:15px;color:var(--muted)}
 .ba__fig figcaption i{display:inline-block;margin-top:12px;font:700 10.5px/1 var(--sans);font-style:normal;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-hi);border:1px solid rgba(212,183,126,.45);border-radius:999px;padding:7px 10px}
@@ -245,9 +246,9 @@ h1,h2,h3,h4,p,blockquote{margin:0}
 .ba__dots{display:flex;gap:0}
 .ba__dots .dot{margin:0 -6px}
 .ba__disc{margin-top:28px;font-size:13.5px;color:var(--muted);max-width:80ch;border-left:1px solid var(--gold);padding-left:16px}
-.ba__fig figcaption b{font-size:22px}
-.ba__fig figcaption span{font-size:14px}
-@media (max-width:760px){ .ba__slide{grid-template-columns:minmax(0,360px);gap:24px} }
+.ba__fig figcaption b{font-size:21px}
+.ba__fig figcaption span{font-size:14px;line-height:1.5;margin-top:4px}
+@media (max-width:760px){ .ba__slide{grid-template-columns:minmax(0,340px);gap:24px} }
 
 /* ---------- benefits bento (ivory) ---------- */
 .benefits{padding:clamp(90px,10vw,140px) 0}
