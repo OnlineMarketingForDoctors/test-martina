@@ -233,7 +233,7 @@ h1,h2,h3,h4,p,blockquote{margin:0}
 .arrow:hover{background:var(--gold);color:var(--ink)}
 .ba__viewport{overflow:hidden}
 .ba__track{display:flex;transition:transform .8s var(--ease)}
-.ba__slide{flex:0 0 100%;display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:2px}
+.ba__slide{flex:0 0 100%;display:grid;grid-template-columns:repeat(2,minmax(0,var(--ba-w)));justify-content:center;gap:32px;padding:2px;--ba-w:min(400px,calc((100vh - 320px) * .8))}
 .ba__fig{margin:0;background:var(--card);border-radius:var(--r-lg);padding:12px 12px 22px;border:1px solid var(--rule)}
 .ba__fig .compare{border-radius:calc(var(--r-lg) - 8px);aspect-ratio:4/5}
 .ba__fig .compare img{object-position:50% 30%}
@@ -245,7 +245,9 @@ h1,h2,h3,h4,p,blockquote{margin:0}
 .ba__dots{display:flex;gap:0}
 .ba__dots .dot{margin:0 -6px}
 .ba__disc{margin-top:28px;font-size:13.5px;color:var(--muted);max-width:80ch;border-left:1px solid var(--gold);padding-left:16px}
-@media (max-width:760px){ .ba__slide{grid-template-columns:1fr;gap:24px} }
+.ba__fig figcaption b{font-size:22px}
+.ba__fig figcaption span{font-size:14px}
+@media (max-width:760px){ .ba__slide{grid-template-columns:minmax(0,360px);gap:24px} }
 
 /* ---------- benefits bento (ivory) ---------- */
 .benefits{padding:clamp(90px,10vw,140px) 0}
