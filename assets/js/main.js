@@ -23,7 +23,6 @@
     { id: 'c1', title: 'Breast reduction with auto-augmentation', text: 'Front view. Her own tissue was repositioned to restore fullness at the top of the breast, without implants.', tag: 'Front view' },
     { id: 'c4', title: 'Bilateral breast reduction', text: 'Front view. A large reduction, with the nipples moved up to a natural height.', tag: 'Front view' },
     { id: 'c3', title: 'Breast reduction with liposuction', text: 'Front view. Liposuction refined the outer chest for a smoother, slimmer outline.', tag: 'Front view' },
-    { id: 'c2', title: 'Breast reduction', text: 'Three-quarter view. Reduced and lifted, with the breast sitting higher on the chest wall.', tag: 'Oblique view' },
     { id: 'c5', title: 'Breast reduction', text: 'Front view. Smaller, lighter breasts with a neater, lifted shape.', tag: 'Front view' },
     { id: 'c6', title: 'Breast reduction', text: 'Front view. A balanced reduction and lift.', tag: 'Front view' },
     { id: 'c8', title: 'Breast reduction', text: 'Front view. Lighter and lifted, in proportion with her frame.', tag: 'Front view' }
@@ -156,7 +155,7 @@
     var slides = [];
     for (var i = 0; i < BA.length; i += 2) slides.push(BA.slice(i, i + 2));
     track.innerHTML = slides.map(function (pair, si) {
-      return '<div class="ba__slide" role="group" aria-roledescription="slide" aria-label="' + (si + 1) + ' of ' + slides.length + '"' + (si ? ' aria-hidden="true"' : '') + '>' +
+      return '<div class="ba__slide' + (pair.length === 1 ? ' is-single' : '') + '" role="group" aria-roledescription="slide" aria-label="' + (si + 1) + ' of ' + slides.length + '"' + (si ? ' aria-hidden="true"' : '') + '>' +
         pair.map(function (p) {
           return '<figure class="ba__fig">' + compareHTML(p.id, p.title) + '<figcaption><b>' + esc(p.title) + '</b><span>' + esc(p.text) + '</span></figcaption></figure>';
         }).join('') + '</div>';
@@ -165,7 +164,7 @@
     var cur = 0, total = slides.length, slideEls = $$('.ba__slide', track);
     $('[data-ba-total]').textContent = total;
     var dotsWrap = $('[data-ba-dots]');
-    dotsWrap.innerHTML = slides.map(function (s, i) { return '<button type="button" class="dot" role="tab" aria-label="Cases ' + (i * 2 + 1) + ' and ' + (i * 2 + 2) + '"></button>'; }).join('');
+    dotsWrap.innerHTML = slides.map(function (s, i) { return '<button type="button" class="dot" role="tab" aria-label="' + (s.length > 1 ? 'Cases ' + (i * 2 + 1) + ' and ' + (i * 2 + 2) : 'Case ' + (i * 2 + 1)) + '"></button>'; }).join('');
     var baDots = $$('.dot', dotsWrap);
     baDots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); }); });
     var go = function (n) {
